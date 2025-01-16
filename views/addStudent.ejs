@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Siswa</title>
+    <link rel="stylesheet" href="/css/addStudent.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tambah Siswa</h1>
+        <form action="/add-student" method="POST">
+            <label for="name">Nama:</label>
+            <input type="text" name="name" placeholder="Nama Siswa" required>
+            <label for="class">Kelas:</label>
+            <select name="class" required>
+                <option value="">Pilih Kelas</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <label for="attendanceDate">Tanggal Kehadiran:</label>
+            <input type="date" name="attendanceDate" required>
+            <button type="submit">Tambah Siswa</button>
+        </form>
+        <a href="/dashboard" class="back-button">Kembali ke Dashboard</a>
+    </div>
+</body>
+</html>

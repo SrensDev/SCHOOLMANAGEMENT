@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Siswa</title>
+    <link rel="stylesheet" href="/css/editStudent.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Informasi Siswa</h1>
+        <form action="/edit-student/<%= student._id %>" method="POST">
+            <label for="name">Nama:</label>
+            <input type="text" name="name" value="<%= student.name %>" required>
+            
+            <label for="class">Kelas:</label>
+            <select name="class" required>
+                <option value="10" <%= student.class === '10' ? 'selected' : '' %>>10</option>
+                <option value="11" <%= student.class === '11' ? 'selected' : '' %>>11</option>
+                <option value="12" <%= student.class === '12' ? 'selected' : '' %>>12</option>
+            </select>
+            
+            <label for="attendanceDate">Tanggal Kehadiran:</label>
+            <input type="date" name="attendanceDate" required>
+            
+            <button type="submit">Simpan Perubahan</button>
+        </form>
+        <a href="/dashboard" class="back-button">Kembali ke Dashboard</a>
+    </div>
+</body>
+</html>

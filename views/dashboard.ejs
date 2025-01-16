@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard</h1>
+        <div class="button-container">
+            <a href="/add-student" class="button">Tambah Siswa</a>
+            <a href="/logout" class="button">Logout</a>
+        </div>
+
+        <h2>Urutkan Berdasarkan</h2>
+        <form action="/dashboard" method="GET" class="sort-form">
+            <select name="sortBy">
+                <option value="name">Nama</option>
+                <option value="class">Kelas</option>
+                <input type="date" name="filterDate">
+            </select>
+            <button type="submit">Urutkan</button>
+        </form>
+
+        <h2>Daftar Siswa</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Kelas</th>
+                    <th>Tanggal Kehadiran</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <% students.forEach(student => { %>
+                        <tr>
+                            <td><%= student.name %></td>
+                            <td><%= student.class %></td>
+                            <td><%= student.attendance[0] ? student.attendance[0].date.toLocaleDateString() : 'Belum Absen' %></td>
+                            <td>
+                                <a href="/edit-student/<%= student._id %>" class="edit-button">Edit</a>
+                                <form action="/delete-student/<%= student._id %>" method="POST" style="display:inline;">
+                                    <button type="submit" class="delete-button">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

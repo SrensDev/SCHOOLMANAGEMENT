@@ -10,5 +10,3 @@ Buka `localhost:3000/login`.
 Masukan username dan password.
 
 ## SELESAI
-
-# DIBUAT OLEH ARY BUDIANTO F2-XII
